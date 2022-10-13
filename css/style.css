@@ -1,0 +1,162 @@
+/* width of 25px that expands up to 475px and goes to 475px, starts with 0 & ends w 1 opacity */
+@keyframes mymove {
+    from {width: 25px; opacity: 0;}
+    to {width: 475px; opacity: 1;}
+}
+
+/* Animation is up to 5 seconds */
+#logo {
+    animation: mymove 5s;
+}
+
+/* Body to use Poppins with backup as serif, 
+ set background-image & background-color as fallback*/
+body {
+    font-family: "Poppins", "serif";
+    background-image: url("../images/concrete_seamless.png");
+    background-color: #f1f1f1;
+    
+}
+
+
+header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.nav_links {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Links have the same color after it's been visited */
+.nav_links li a:visited {
+    color: #0000FF;
+}
+  
+/* header elements that are children of card class */
+.card > header {
+    background: #288088;
+    border: 2px solid #45ADAD;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+  
+
+.card {
+    flex-basis: 450px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+    
+
+.pricing {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    
+}
+.gallery img {
+    border: 10px solid #50C7C7;
+    width: 300px;
+    margin: 10px;
+    
+}
+    
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+    
+/* when screen size is greater than 900px */
+@media screen and (min-width: 900px) {
+    
+    
+    header, .nav_links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+    }
+    
+    .card {
+        flex-basis: 275px;
+    }
+    
+    
+    .pricing {
+        flex-basis: 275px;
+    }
+    
+    /* first header */
+    a + header {
+        position: sticky;
+        top: 0px;
+    }
+}
+    
+/* when user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    #logo {
+        animation: none;
+    }
+}
+    
+/* when page is printed in portrait */
+@media print {
+    
+    
+    body {
+        font-family: "Arial", "Helvetica";
+        background-image: none;
+    }        
+
+    
+    nav {
+        width: 100%;
+    }
+        
+    
+    .nav_links {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    
+    
+    .pricing {
+        display: flex;
+        border-bottom-left-radius: none;
+        border-bottom-right-radius: none;
+        align-items: flex-end;
+        flex-wrap: nowrap;
+    }
+        
+    
+    .card {
+        border: solid 2px #45ADDD;
+        flex-basis: 325px;
+        border-bottom-left-radius: none;
+        border-bottom-right-radius: none;
+    }
+
+    /* make gallery not visible */
+    #gallery, .gallery {
+        display:none;
+    }
+
+    /* adddition of thumbs up */
+    .card li:nth-child(2)::after {
+        content:"\01F44D";
+    }
+}
+
+
